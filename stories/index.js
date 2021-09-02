@@ -10,6 +10,7 @@ import  Appointment  from "../src/components/Appointment/index";
 import  Header  from "../src/components/Appointment/Header";
 import  Empty  from "../src/components/Appointment/Empty";
 import  Show  from "../src/components/Appointment/Show";
+import  Confirm  from "../src/components/Appointment/Confirm";
 
 import "index.scss";
 
@@ -150,3 +151,10 @@ storiesOf("Appointment", module)
         />
       )
   )
+  .add("Confirm", ()=> (
+    <Confirm message = "Delete the appointment?" 
+    onConfirm = {action("onConfirm")} 
+    onCancel = {action("onCancel")} 
+    />
+  )
+)
