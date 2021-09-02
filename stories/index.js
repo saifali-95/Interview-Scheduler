@@ -7,7 +7,9 @@ import  DayList  from "../src/components/DayList";
 import  InterviewerListItem  from "../src/components/InterviewerListItem";
 import  InterviewerList  from "../src/components/InterviewerList";
 import  Appointment  from "../src/components/Appointment/index";
-
+import  Header  from "../src/components/Appointment/Header";
+import  Empty  from "../src/components/Appointment/Empty";
+import  Show  from "../src/components/Appointment/Show";
 
 import "index.scss";
 
@@ -138,3 +140,13 @@ storiesOf("Appointment", module)
   })
   .add("Appointment", () => <Appointment />)  
   .add("Appointment", () => <Appointment time = '12pm'/>)
+  .add("Header", ()=> <Header time = '12pm' />)
+  .add("Empty", ()=> <Empty onAdd = {action("onAdd")} />)
+  .add("Show", ()=> (
+        <Show student = "Lydia Miller-Jones" 
+        interviewer = {interviewer} 
+        onEdit = {action("onEdit")} 
+        onDelete = {action("onDelete")} 
+        />
+      )
+  )
