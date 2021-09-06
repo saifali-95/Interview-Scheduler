@@ -31,6 +31,7 @@ export default function Application(props) {
       id={appointment.id}
       time={appointment.time}
       interview={interview}
+      interviewers = {[]}
       />   
     )
   })
