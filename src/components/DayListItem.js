@@ -6,10 +6,8 @@ import "components/DayListItem.scss";
 
 export default function DayListItem(props) {
   
-  const formatSpots = () => (
-  
-    props.spots ? `${props.spots} spot${props.spots > 1 ? 's' : ''} remaining` : "no spots remaining"
-    
+  const formatSpots = () => (  
+    props.spots ? `${props.spots} spot${props.spots > 1 ? 's' : ''} remaining` : "no spots remaining"    
   )
 
   const dayClass = classNames("day-list__item", {

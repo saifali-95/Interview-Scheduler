@@ -20,7 +20,7 @@ export default function Application(props) {
   }
 
   const bookInterview = function(id, interview){
-    
+
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -34,7 +34,7 @@ export default function Application(props) {
     return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => 
       setState({...state, appointments}))
-    .catch((error)=> console.log(error))
+    //.catch((error)=> console.log(error))
   }
 
   const cancelBooking = function(id) {
@@ -52,7 +52,7 @@ export default function Application(props) {
     return axios.delete(`/api/appointments/${id}`)
     .then(() => 
       setState({...state, appointments}))
-    .catch((error)=> console.log(error))
+    //.catch((error)=> console.log(error))
   }
 
 
@@ -85,12 +85,12 @@ export default function Application(props) {
       axios.get('/api/appointments'),
       axios.get('/api/interviewers')
     ]).then((all) => { 
-      setState({ days: all[0].data, appointments: all[1].data, interviewers: all[2].data});
+      setState({...state, days: all[0].data, appointments: all[1].data, interviewers: all[2].data});
     })
 
   }, []);
 
-  
+
   return (
     <main className="layout">
       <section className="sidebar">
