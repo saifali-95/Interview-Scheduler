@@ -1,4 +1,5 @@
 
+//Function to find the list of appointments booked on the selected day.
 export function getAppointmentsForDay(state, day) {
  const resultArray = [];
  for(const item in state.days) {
@@ -15,16 +16,17 @@ export function getAppointmentsForDay(state, day) {
  return resultArray;
 }
 
+
+//Function to find the information of an interview (student name and interviewer object);
 export function getInterview(state, interview) {
   
   if (interview === null) {
     return null;
-  }
-  
+  }  
   for (const item in state.appointments) {
-
     if (state.appointments[item].interview) {
-      if (state.appointments[item].interview.student === interview.student && state.appointments[item].interview.interviewer === interview.interviewer){
+      if (state.appointments[item].interview.student === interview.student 
+          && state.appointments[item].interview.interviewer === interview.interviewer){
         for(const id in state.interviewers) {
           if (state.interviewers[id].id === interview.interviewer) {
             return ({student: interview.student, interviewer: state.interviewers[id]})
@@ -35,6 +37,7 @@ export function getInterview(state, interview) {
   } 
 }
 
+//Function to find the list of available interviewers on the selected day.
 export function getInterviewersForDay(state, day) {
   const resultArray = [];
   for(const item in state.days) {
@@ -47,4 +50,4 @@ export function getInterviewersForDay(state, day) {
     }
   }
   return resultArray;
- }
+}

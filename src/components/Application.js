@@ -1,8 +1,7 @@
-import React, { useState, useEffect }  from "react";
+import React from "react";
 import DayList from "./DayList";
 import "components/Application.scss";
 import Appointment from "../components/Appointment";
-import axios from 'axios';
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from '../helpers/selectors';
 import useApplicationData from "hooks/useApplicationData";
 
@@ -16,10 +15,12 @@ export default function Application(props) {
     cancelBooking
   } = useApplicationData();
 
+  //Finding a list of appointments already booked on the selected day.
   const dailyAppointments = getAppointmentsForDay(state, state.day);
  
-  const interviewers =  getInterviewersForDay(state, state.day);
-  
+  //Finding a list of interviewers available on the selected day.
+  const interviewers =  getInterviewersForDay(state, state.day); 
+
   const appointments =  dailyAppointments.map((appointment) => {
       
     return (
@@ -38,7 +39,6 @@ export default function Application(props) {
   return (
     <main className="layout">
       <section className="sidebar">
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
         <img
           className="sidebar--centered"
           src="images/logo.png"

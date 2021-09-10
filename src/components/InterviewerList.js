@@ -9,8 +9,7 @@ function InterviewerList(props) {
 
   const { interviewers } = props
   const interviewers__list =  interviewers.map((interviewer) => {
-   
-    return (
+   return (
       <InterviewerListItem 
         key={interviewer.id} 
         name= {interviewer.name} 
@@ -21,18 +20,12 @@ function InterviewerList(props) {
     )
   })
   
-  
-
   return (
-    
-  <section className="interviewers">
-  <h4 className="interviewers__header text--light">Interviewer</h4>
-  <ul className="interviewers__list"> {interviewers__list}  </ul>
-  
-  </section>
-  
+    <section className="interviewers">
+      <h4 className="interviewers__header text--light">Interviewer</h4>
+      <ul className="interviewers__list"> {interviewers__list}  </ul>
+    </section>
   );
-
 }
 
 InterviewerList.propTypes = {

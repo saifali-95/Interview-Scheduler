@@ -20,6 +20,7 @@ export default function useApplicationData() {
     });
   }
 
+  //Function to calculate remaining booking spots when an appointment is booked on cancelled.
   const updateSpots = function (id) {
     if (state.appointments[id].interview === null) {
       for (const spot in state.days) {
@@ -36,6 +37,7 @@ export default function useApplicationData() {
     }
   }
 
+  //Function to find the index of the selected day, so that the state can be modified.
   const day_id = function () {
     for (const id in state.days) {
       if (state.days[id].name === state.day) {
@@ -44,6 +46,7 @@ export default function useApplicationData() {
     }
   }
 
+  //Function to book an appointment by calling a 'put' axios request.
   const bookInterview = function (id, interview) {
 
     const appointment = {
@@ -79,6 +82,7 @@ export default function useApplicationData() {
       })
   }
 
+  //Function to cancel booking by calling a 'delete' axios request.
   const cancelBooking = function (id) {
 
     const appointment = {
@@ -135,5 +139,4 @@ export default function useApplicationData() {
     bookInterview,
     cancelBooking
   }
-
 }
